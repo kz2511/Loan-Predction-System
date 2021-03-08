@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Loan Approval System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="pred">
+
+
+    <!-- Navbar Starts -->
+    <section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand font-weight-bold" href="#" style="color: yellow;">Make Predction and Know Your Status</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    </nav>
+    </section>
+    <!-- Navbar Ends -->
+
+
+        <h4 class="text-light display-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp Please Fill in the details to get your chances of Loan Approval.</h4>
+        <form>
+
+
+    	<div class="leftcontact">
+            <div class="form-group">
+			<p>First Name </p>
+			<span class="icon-case"></span>
+				<input name="fn" placeholder="First Name" required="required">
+                <div class="validation"></div>
+			</div>
+
+            <div class="form-group">
+			<p>Last Name </p>
+			<span class="icon-case"></span>
+				<input name="ln" placeholder="Last Name" required="required">
+                <div class="validation"></div>
+			</div>
+
+            <div class="form-group">
+			<p>Total Bank Account Open </p>
+			<span class="icon-case"></span>
+				<input name="acc" placeholder="Bank Account Number" type="number" required="required">
+                <div class="validation"></div>
+			</div>
+
+            <div class="form-group">
+			        <p>Gender </p>
+			        <span class="icon-case"></span>
+                    <select name="gen" required="required">
+                        <option value="0"> Male</option>
+                        <option value="1"> Female</option>
+                    </select>
+            <div class="validation"></div>
+       </div>
+
+            <div class="form-group">
+            <p>Marital Status </p>
+            <span class="icon-case"></span>
+				<select name="mar" required="required">
+                    <option value="0"> Married</option>
+                    <option value="1"> UnMarried</option>
+                </select>
+                <div class="validation"></div>
+			</div>
+
+			<div class="form-group">
+			<p>Number of Dependents </p>
+			<span class="icon-case"></span>
+                <select name="dep" required="required">
+                <option value="0"> Zero Dependents </option>
+                <option value="1">One Dependents</option>
+                <option value="2">two Dependents</option>
+                <option value="3">three Dependents</option>
+                <option value="4"> More Than Three Dependents</option>
+            </select>
+                <div class="validation"></div>
+			</div>
+
+			<div class="form-group">
+			<p>Education </p>
+			<span class="icon-case"></span>
+				<select name="edu" required="required">
+                    <option value="0"> Graduate</option>
+                    <option value="1"> Not Graduate</option>
+                </select>
+                <div class="validation"></div>
+			</div>
+
+
+
+	</div>
+
+	<div class="rightcontact">
+        <div class="form-group">
+			<p>Employment Status</p>
+			<span class="icon-case"></span>
+				<select name="emp" required="required">
+                    <option value="0"> Business</option>
+                    <option value="1"> Job</option>
+                </select>
+                <div class="validation"></div>
+			</div>
+        <div class="form-group">
+			<p>Propery Area</p>
+                <span class="icon-case"></span>
+                <select name="property" required="required">
+                <option value="0">Rural</option>
+                <option value="1">Semiurban</option>
+                <option value="2">urban</option>
+            </select>
+                <div class="validation"></div>
+			</div>
+
+			<div class="form-group">
+			<p>Your Credit Score</p>
+			<span class="icon-case"></span>
+                <select name="credit" required="required">
+                <option value="0">Between 100 to 300</option>
+                <option value="1"> Between 300 to 500</option>
+                <option value="2"> Between 500 to 600</option>
+                <option value="3"> Above 600</option>
+
+            </select>
+                <div class="validation"></div>
+			</div>
+
+			<div class="form-group">
+			<p>Enter YourIncome</p>
+			<span class="icon-case"></span>
+				<input name="income" type="text" required="required">
+                <div class="validation"></div>
+			</div>
+
+            <div class="form-group">
+			<p>Enter Your Co-Applicant Income </p>
+			<span class="icon-case"></span>
+				<input name="caincome" type="text" required="required">
+                <div class="validation"></div>
+			</div>
+        <div class="form-group">
+			<p>Enter Your Loan Amount </p>
+			<span class="icon-case"></span>
+				<input name="lamount" type="text" required="required">
+                <div class="validation"></div>
+			</div>
+
+			<div class="form-group">
+			<p>Loan Duration</p>
+			<span class="icon-case"></span>
+                <select name="duration" required="required">
+
+                <option value="60">2 Months</option>
+                <option value="90">3 Months</option>
+                <option value="180">6 Months</option>
+                <option value="240">8Months</option>
+                <option value="360">12 Months</option>
+                <option value="450"> 15 Months</option>
+                <option value="540">18 Months</option>
+
+            </select>
+            <div class="validation"></div>
+			</div>
+
+
+
+	</div>
+	</div>
+<center>
+<br><button  type="submit " class="btn btn-lg btn-info mb-5 ml-5" style="box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E)"> Make Predict</button>
+</center>
+</form>
+            </div>
+
+
+
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: sans-serif;
+    background-repeat: no-repeat !important;
+    background-size: 100% 100%!important;
+}
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+#nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.navbar {
+    background: rgb(0, 81, 255) !important;
+}
+.navbar-nav li {
+    padding: 0 10px;
+}
+.navbar-nav li a {
+    color: #fff !important;
+    font-weight: 600;
+}
+.navbar-toggler {
+    outline: none !important;
+}
+ #banner {
+         background: rgb(0, 81, 255) !important;
+         color: #fff;
+         padding-top: 5%;
+      }
+      .promo-title {
+        font-size: 40px;
+        font-weight: 600;
+        margin-top: 100px;
+      }
+      body {
+  margin: auto;
+  background: #eaeaea;
+  font-family: 'Open Sans', sans-serif;
+}
+ .info p {
+  text-align:center;
+  color: #999;
+  text-transform:none;
+  font-weight:600;
+  font-size:15px;
+  margin-top:2px
+}
+
+.info i {
+  color:#F6AA93;
+}
+form h1 {
+  font-size: 18px;
+  background:blue none repeat scroll 0% 0%;
+  color: rgb(255, 255, 255);
+  padding: 22px 25px;
+  border-radius: 5px 5px 0px 0px;
+  margin: auto;
+  text-shadow: none;
+  text-align:left
+}
+
+form {
+  border-radius: 5px;
+  max-width:700px;
+  width:100%;
+  margin: 5% auto;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+p span {
+  color: #F00;
+}
+
+p {
+  margin: 0px;
+  font-weight: 500;
+  line-height: 2;
+  color:#333;
+}
+
+h1 {
+  text-align:center;
+  color: #666;
+  text-shadow: 1px 1px 0px #FFF;
+  margin:50px 0px 0px 0px
+}
+
+input {
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+  width: 75%;
+  height: 40px;
+  float: left;
+  padding: 0px 15px;
+}
+
+a {
+  text-decoration:inherit
+}
+
+textarea {
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid #EEE;
+  margin: 0;
+  width: 75%;
+  height: 130px;
+  float: left;
+  padding: 0px 15px;
+}
+
+.form-group {
+  overflow: hidden;
+  clear: both;
+}
+
+.icon-case {
+  width: 35px;
+  float: left;
+  border-radius: 5px 0px 0px 5px;
+  background:#eeeeee;
+  height:42px;
+  position: relative;
+  text-align: center;
+  line-height:40px;
+}
+
+i {
+  color:#555;
+}
+
+.contentform {
+  padding: 40px 30px;
+}
+
+.bouton-contact{
+  background-color: #81BDA4;
+  color: #FFF;
+  text-align: center;
+  width: 100%;
+  border:0;
+  padding: 17px 25px;
+  border-radius: 0px 0px 5px 5px;
+  cursor: pointer;
+  margin-top: 40px;
+  font-size: 18px;
+}
+
+.leftcontact {
+  width:49.5%;
+  float:left;
+  border-right: 1px dotted #CCC;
+  box-sizing: border-box;
+  padding: 0px 15px 0px 0px;
+}
+
+.rightcontact {
+  width:49.5%;
+  float:right;
+  box-sizing: border-box;
+  padding: 0px 0px 0px 15px;
+}
+
+.validation {
+  display:none;
+  margin: 0 0 10px;
+  font-weight:400;
+  font-size:13px;
+  color: #DE5959;
+}
+
+#sendmessage {
+  border:1px solid #fff;
+  display:none;
+  text-align:center;
+  margin:10px 0;
+  font-weight:600;
+  margin-bottom:30px;
+  background-color: #EBF6E0;
+  color: #5F9025;
+  border: 1px solid #B3DC82;
+  padding: 13px 40px 13px 18px;
+  border-radius: 3px;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.03);
+}
+
+#sendmessage.show,.show  {
+  display:block;
+}
+
+
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+
+</html>

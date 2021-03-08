@@ -1,0 +1,58 @@
+.bg-nav{
+    background: #C6FFDD;
+    background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+    background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+}
+.mt-50{
+      margin-top:50px;
+}
+.bg-header{
+     background: #2c3e50;
+     background: -webkit-linear-gradient(to right, #3498db, #2c3e50);
+     background: linear-gradient(to right, #3498db, #2c3e50);
+
+}
+
+.pred {
+    background: #4B79A1;
+    background: -webkit-linear-gradient(to right, #283E51, #4B79A1);
+    background: linear-gradient(to right, #283E51, #4B79A1);
+
+}
+.ex-header{
+    background: #22c1c3;
+background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);
+background: linear-gradient(to right, #fdbb2d, #22c1c3);
+
+}
+.form {
+  border-radius: 5px;
+  max-width:700px;
+  width:100%;
+  margin: 5% auto;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+.input {
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+  width: 75%;
+  height: 40px;
+  float: left;
+  padding: 0px 15px;
+}
+
+a {
+  text-decoration:inherit
+}
+
+.textarea {
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid #EEE;
+  margin: 0;
+  width: 75%;
+  height: 130px;
+  float: left;
+  padding: 0px 15px;
+}

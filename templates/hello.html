@@ -1,0 +1,19 @@
+val = (userid,)
+    val_sql = 'SELECT * FROM USER_DATA WHERE USER_ID = %s'
+    cursor.execute(val_sql, val)
+    USER_DATA = cursor.fetchall()
+    USER_DATA = list(USER_DATA[0])
+    print(USER_DATA)
+ if userid == USER_DATA[0]:
+        return render_template('sing.html',status=1)
+    else:
+
+    if password != con_password:
+        return render_template('sing.html', passvali=1)
+    cursor.execute(val_sql, val)
+    USER_DATA = cursor.fetchall()
+    USER_DATA = list(USER_DATA[0])
+    print(USER_DATA)
+    if userid == USER_DATA[0]:
+        return render_template('sing.html', status=1)
+    else:
