@@ -13,7 +13,8 @@ app.secret_key = os.urandom(24)
 connection = pymysql.connect(host="localhost", user="root", password="", database="loan_prediction")
 cursor = connection.cursor()
 
-
+# import model
+model = pickle.load(open('./Model/loanpredction_model.pkl', 'rb'))
 # decorator defines
 @app.route('/home')
 def home():
@@ -66,21 +67,21 @@ def adduser():
     if password != con_password:
         return render_template('sing.html', passvali=1)
 
-
     cursor.execute(val_sql, val)
     USER_DATA = cursor.fetchall()
     # USER_DATA = list(USER_DATA[0])
-    print(USER_DATA)
-    if len(USER_DATA)>0:
+    if len(USER_DATA) > 0:
         return render_template('sing.html', status=1)
     else:
         cursor.execute(query)
         connection.commit()
         return redirect('/home')
 
+
 @app.route("/logout")
 def logout():
     return redirect('/')
+
 
 @app.route("/predict")
 def predict():
