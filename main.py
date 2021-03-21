@@ -2,19 +2,17 @@
 import pymysql.connections
 from flask import Flask, render_template, request, redirect, session
 import os
-
+import pickle
 import hashlib
 import mysql.connector
 
 # creating the Flask class object
 app = Flask(__name__)
+model = pickle.load(open('./Model/loanpredction_model.pkl', 'rb'))
 app.secret_key = os.urandom(24)
 # connection with database
 connection = pymysql.connect(host="localhost", user="root", password="", database="loan_prediction")
 cursor = connection.cursor()
-
-# import model
-model = pickle.load(open('./Model/loanpredction_model.pkl', 'rb'))
 # decorator defines
 @app.route('/home')
 def home():
@@ -41,7 +39,7 @@ def loginvaldation():
     cursor.execute(val_sql, val)
     USER_DATA = cursor.fetchall()
     USER_DATA = list(USER_DATA[0])
-    print(USER_DATA)
+    #print(USER_DATA)
 
     if password == USER_DATA[-1]:
         return redirect('/home')
