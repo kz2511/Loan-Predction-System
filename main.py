@@ -8,7 +8,7 @@ import mysql.connector
 
 # creating the Flask class object
 app = Flask(__name__)
-model = pickle.load(open('./Model/loanpredction_model.pkl', 'rb'))
+model = pickle.load(open('./Model/loanpred.pkl', 'rb'))
 app.secret_key = os.urandom(24)
 # connection with database
 connection = pymysql.connect(host="localhost", user="root", password="", database="loan_prediction")
@@ -39,7 +39,7 @@ def loginvaldation():
     cursor.execute(val_sql, val)
     USER_DATA = cursor.fetchall()
     USER_DATA = list(USER_DATA[0])
-    #print(USER_DATA)
+    print(USER_DATA)
 
     if password == USER_DATA[-1]:
         return redirect('/home')
@@ -81,9 +81,46 @@ def logout():
     return redirect('/')
 
 
-@app.route("/predict")
-def predict():
+@app.route("/predction")
+def predction():
     return render_template('predction.html')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    try:
+        if request.method == 'POST':
+            fn = request.form['fn']
+            ln = request.form['ln']
+            acc = int(request.form['acc'])
+            gen = float(request.form['gen'])
+            mar = float(request.form['mar'])
+            dep = float(request.form['dep'])
+            edu = int(request.form['edu'])
+            emp = int(request.form['emp'])
+            property = int(request.form['property'])
+            credit = int(request.form['credit'])
+            income = int(request.form['income'])
+            caincome = int(request.form['caincome'])
+            laamount = int(request.form['laamount'])
+            duration = int(request.form['duration'])
+
+            features = [[gen,acc,mar,dep,edu,emp,property,credit,income,caincome,laamount,duration]]
+            prediction = model.predict(features)
+            lc = [str(i) for i in prediction]
+            ans = int("".join(lc))
+            print(ans)
+            cusname = "Hello Sir "+fn+' '+ln
+            acc = "Bank Account Number: " + str(acc)
+            if ans == 0:
+                mopred = "Sorry! According to Our Calculations you will not get the loan from Bank."
+                return render_template('predict.html',cus_name = cusname,acc_no =acc,prediction_text=mopred )
+            else:
+                print(ans)
+                mopred = "Congratulations! According to Our Calculation you will get the loan from Bank."
+                return render_template('predict.html', cus_name=cusname, acc_no=acc, prediction_text=mopred)
+    except Exception as e:
+        print(e)
+        return render_template('predict.html',  prediction_text="Something went wrong!!!")
 
 
 if __name__ == '__main__':
