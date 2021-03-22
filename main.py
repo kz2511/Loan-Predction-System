@@ -39,6 +39,7 @@ def loginvaldation():
     cursor.execute(val_sql, val)
     USER_DATA = cursor.fetchall()
     USER_DATA = list(USER_DATA[0])
+
     print(USER_DATA)
 
     if password == USER_DATA[-1]:
