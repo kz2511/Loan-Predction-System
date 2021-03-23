@@ -4,11 +4,10 @@ from flask import Flask, render_template, request, redirect, session
 import os
 import pickle
 import hashlib
-import mysql.connector
 
 # creating the Flask class object
 app = Flask(__name__)
-model = pickle.load(open('./Model/loanpred.pkl', 'rb'))
+model = pickle.load(open('./Model/loanpred_model.pkl', 'rb'))
 app.secret_key = os.urandom(24)
 # connection with database
 connection = pymysql.connect(host="localhost", user="root", password="", database="loan_prediction")
@@ -27,6 +26,10 @@ def login():
 @app.route('/singin')
 def singin():
     return render_template('sing.html')
+
+@app.route('/visualize')
+def visu():
+    return render_template('visualize.html')
 
 
 @app.route('/login_validation', methods=["POST"])
@@ -101,11 +104,12 @@ def predict():
             credit = int(request.form['credit'])
             income = int(request.form['income'])
             caincome = int(request.form['caincome'])
-            laamount = int(request.form['laamount'])
+            lamount = int(request.form['lamount'])
             duration = int(request.form['duration'])
 
-            features = [[gen,acc,mar,dep,edu,emp,property,credit,income,caincome,laamount,duration]]
+            features = [[gen,acc,mar,dep,edu,emp,property,credit,income,caincome,lamount,duration]]
             prediction = model.predict(features)
+            print(prediction)
             lc = [str(i) for i in prediction]
             ans = int("".join(lc))
             print(ans)
