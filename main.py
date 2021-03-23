@@ -35,11 +35,10 @@ def loginvaldation():
     password = request.form.get('password')
     mobile_number = request.form.get('mobile_number')
     val = (userid,)
-    val_sql = 'SELECT * FROM USER_DATA WHERE USER_ID = %s'
+    val_sql = 'SELECT * FROM user_data WHERE USER_ID = %s'
     cursor.execute(val_sql, val)
     USER_DATA = cursor.fetchall()
     USER_DATA = list(USER_DATA[0])
-
     print(USER_DATA)
 
     if password == USER_DATA[-1]:
