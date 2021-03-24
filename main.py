@@ -36,7 +36,7 @@ def visu():
 def loginvaldation():
     userid = request.form.get('userid')
     password = request.form.get('password')
-    mobile_number = request.form.get('mobile_number')
+    mobile_number  = request.form.get('mobile_number')
     val = (userid,)
     val_sql = 'SELECT * FROM user_data WHERE USER_ID = %s'
     cursor.execute(val_sql, val)
