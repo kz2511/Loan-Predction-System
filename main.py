@@ -3,7 +3,7 @@ import pymysql.connections
 from flask import Flask, render_template, request, redirect,session
 import os
 import pickle
-import hashlib
+
 
 # creating the Flask class object
 app = Flask(__name__)
