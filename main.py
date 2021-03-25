@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import pymysql.connections
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect,session
 import os
 import pickle
 import hashlib
@@ -15,8 +15,10 @@ cursor = connection.cursor()
 # decorator defines
 @app.route('/home')
 def home():
-    return render_template('home.html')
-
+    if 'userid' in session:
+        return render_template('home.html')
+    else:
+        return redirect('/')
 
 @app.route('/')
 def login():
@@ -45,6 +47,7 @@ def loginvaldation():
     print(USER_DATA)
 
     if password == USER_DATA[-1]:
+        session['userid'] = USER_DATA[0][0]
         return redirect('/home')
     else:
         print("Something went wrong")

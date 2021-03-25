@@ -26,33 +26,33 @@
            <div class="card mt-50">
                <div class="card-body">
                    <form class="form" method="POST", action="/add_user">
-                       <label for="exampleInputUserid">USER_ID</label>
+                       <label for="exampleInputUserid">Userid</label>
                        <input type="USER_ID" class="form-control" id="exampleInputUserid"
-                              placeholder="USER_ID" name="userid" required>
+                              placeholder="Userid" name="userid" required>
                        <br>
-                       <label for="validationTooltip1" >EMAILADDRESS </label>
-                       <input type="Email" class="form-control" id="validationTooltip1" placeholder="EMAI ADDRESS"
+                       <label for="validationTooltip1" >Email Addresses  </label>
+                       <input type="Email" class="form-control" id="validationTooltip1" placeholder="Email Addresses"
                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                               name="email" required>
                        <br>
-                       <label for="exampleInputMobileno">MOBILE_NUMBER</label>
+                       <label for="exampleInputMobileno">Mobile Number</label>
                        <input type="tel" pattern=".{10}" class="form-control" id="exampleInputMobileno"
-                              placeholder="MOBILE_NUMBER" oninput="check(this)"
+                              placeholder="Mobile Number" oninput="check(this)"
                               name="mobile_number" required>
                        <br>
-                       <label for="exampleInputFirst">FULL_NAME</label>
+                       <label for="exampleInputFirst">Full Name</label>
                        <input type="First" class="form-control" id="exampleInputFirst"
-                              placeholder="FULL_NAME" name="fullname" required>
+                              placeholder="Full Name" name="fullname" required>
 
                        <br>
 
-                       <label for="exampleInputPassword1">PASSWORD</label>
+                       <label for="exampleInputPassword1">Password</label>
                        <input type="password" class="form-control" id="exampleInputPassword1"
                               placeholder="Password" name="password" required>
                        <br>
-                       <label for="exampleInputPassword1">CONFORM_PASSWORD</label>
+                       <label for="exampleInputPassword1">Conform Password</label>
                        <input type="password" class="form-control" id="exampleInputPassword2"
-                              placeholder="Password" name="con_password" required>
+                              placeholder="Conform Password" name="con_password" required>
                        {% if passvali == 1 %}
                             <h4 style="color:orange;">Both Passwords does not match</h4>
                        {% endif %}
