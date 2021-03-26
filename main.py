@@ -16,6 +16,7 @@ cursor = connection.cursor()
 @app.route('/home')
 def home():
     if 'userid' in session:
+        print(app.secret_key)
         return render_template('home.html')
     else:
         return redirect('/')
@@ -111,20 +112,35 @@ def predict():
             duration = int(request.form['duration'])
 
             features = [[gen,acc,mar,dep,edu,emp,property,credit,income,caincome,lamount,duration]]
+
             prediction = model.predict(features)
             print(prediction)
             lc = [str(i) for i in prediction]
             ans = int("".join(lc))
             print(ans)
             cusname = "Hello Sir "+fn+' '+ln
-            acc = "Bank Account Number: " + str(acc)
+            accr = "Bank Account Number: " + str(acc)
             if ans == 0:
+                pred = 'Not Approved'
                 mopred = "Sorry! According to Our Calculations you will not get the loan from Bank."
-                return render_template('predict.html',cus_name = cusname,acc_no =acc,prediction_text=mopred )
+                resp_data = (str(fn), str(ln), str(acc), str(gen), str(mar), str(dep), str(edu), str(emp), str(property),str(credit), str(income), str(caincome), str(lamount), str(duration), str(pred))
+                print(len(resp_data))
+                print(resp_data)
+                resp_query = "INSERT INTO prediction (First_Name,Last_Name,Bank_Account_last_three_digit,Gender,Martial_Status,Number_of_dependents,Education, Employment_status,Property_Area,Credit_Score ,Income,Co_Applicant_Income,Loan_Amount , Loan_Duration,prediction)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                cursor.execute(resp_query,resp_data)
+                connection.commit()
+                return render_template('predict.html',cus_name = cusname,acc_no =accr,prediction_text=mopred )
             else:
-                print(ans)
+                pred = 'Approved'
+                resp_data = (str(fn), str(ln),str(acc), str(gen), str(mar), str(dep), str(edu), str(emp), str(property), str(credit), str(income), str(caincome), str(lamount), str(duration), str(pred))
+                print(len(resp_data))
+                print(resp_data)
+                resp_query = "INSERT INTO prediction (First_Name,Last_Name,Bank_Account_last_three_digit,Gender,Martial_Status,Number_of_dependents,Education, Employment_status,Property_Area,Credit_Score ,Income,Co_Applicant_Income,Loan_Amount , Loan_Duration,prediction)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                cursor.execute(resp_query, resp_data)
+                connection.commit()
                 mopred = "Congratulations! According to Our Calculation you will get the loan from Bank."
-                return render_template('predict.html', cus_name=cusname, acc_no=acc, prediction_text=mopred)
+                return render_template('predict.html', cus_name=cusname, acc_no=accr, prediction_text=mopred)
+
     except Exception as e:
         print(e)
         return render_template('predict.html',  prediction_text="Something went wrong!!!")
