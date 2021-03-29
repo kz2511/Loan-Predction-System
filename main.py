@@ -30,6 +30,10 @@ def login():
 def singin():
     return render_template('sing.html')
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
 @app.route('/visualize')
 def visu():
     return render_template('visualize.html')
