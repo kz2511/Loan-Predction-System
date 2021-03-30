@@ -57,6 +57,12 @@ a {
   padding: 0px 15px;
 }
 
+.bg-admin{
+    background: #ef32d9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);
+    background: linear-gradient(to right, #89fffd, #ef32d9);
+}
+
 .imageset{
       background-image: url({{ url_for ('static', filename = 'FNBJBHilltopCREvening.jpg') }});
       height: 100vh;

@@ -13,6 +13,9 @@ app.secret_key = os.urandom(24)
 connection = pymysql.connect(host="localhost", user="root", password="", database="loan_prediction")
 cursor = connection.cursor()
 # decorator defines
+@app.route('/admin')
+def admin():
+    return render_template('admin.html')
 @app.route('/home')
 def home():
     if 'userid' in session:
