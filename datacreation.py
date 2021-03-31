@@ -14,8 +14,7 @@ def createtablesingin():
         EMAILADDRESS varchar(100) NOT NULL,
         MOBILE_NUMBER varchar(100) NOT NULL,
         FULL_NAME varchar(100) NOT NULL,
-        PASSWORD varchar(20) NOT NULL,
-        conf_PASSWORD varchar(20) NOT NULL,
+        PASSWORD varchar(50) NOT NULL
         PRIMARY KEY (USER_ID)
     );
        """)

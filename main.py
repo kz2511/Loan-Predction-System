@@ -3,7 +3,7 @@ import pymysql.connections
 from flask import Flask, render_template, request, redirect,session
 import os
 import pickle
-
+import hashlib
 
 # creating the Flask class object
 app = Flask(__name__)
@@ -15,6 +15,7 @@ cursor = connection.cursor()
 # decorator defines
 @app.route('/admin')
 def admin():
+
     return render_template('admin.html')
 @app.route('/home')
 def home():
@@ -53,8 +54,10 @@ def loginvaldation():
     USER_DATA = cursor.fetchall()
     USER_DATA = list(USER_DATA[0])
     print(USER_DATA)
-
-    if password == USER_DATA[-1]:
+    md5 = hashlib.md5()
+    md5.update(str(password).encode('utf-8'))
+    print(USER_DATA[-1], " ", str(md5.hexdigest()))
+    if str(md5.hexdigest()) == USER_DATA[-1]:
         session['userid'] = USER_DATA[0][0]
         return redirect('/home')
     else:
@@ -71,13 +74,21 @@ def adduser():
     password = request.form.get('password')
     con_password = request.form.get('con_password')
 
-    query = "INSERT INTO USER_DATA (USER_ID, EMAILADDRESS, MOBILE_NUMBER,FULL_NAME,PASSWORD,conf_PASSWORD) " \
-            "VALUES('%s','%s','%s','%s','%s','%s')" % (userid, email, mobile_number, fullname, password, con_password)
+    if password != con_password:
+        return render_template('sing.html', passvali=1)
+
+
+
+    result = hashlib.md5(str(password).encode('utf-8'))
+    md5 = hashlib.md5()
+    md5.update(str(password).encode('utf-8'))
+    print(str(md5.hexdigest()))
+    query = "INSERT INTO USER_DATA (USER_ID, EMAILADDRESS, MOBILE_NUMBER,FULL_NAME,PASSWORD) " \
+            "VALUES('%s','%s','%s','%s','%s')" % (userid, email, mobile_number, fullname, md5.hexdigest())
 
     val = (userid,)
     val_sql = 'SELECT * FROM USER_DATA WHERE USER_ID = %s'
-    if password != con_password:
-        return render_template('sing.html', passvali=1)
+
 
     cursor.execute(val_sql, val)
     USER_DATA = cursor.fetchall()
@@ -87,6 +98,7 @@ def adduser():
     else:
         cursor.execute(query)
         connection.commit()
+        session['userid'] = userid
         return redirect('/home')
 
 
