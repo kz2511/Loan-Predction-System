@@ -8,10 +8,40 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <title>change title</title>
+    <title> Contact </title>
   </head>
-<body>
-<img src="{{url_for('static', filename='header-background.jpg' )}}">
+<body class="cont">
+<div class="container">
+            <div class="row">
+			<img src="{{url_for('static', filename='')}}" />
+
+                <div class="col-md-6">
+                    <div class="text-container about">
+                        <h4>Developed by:</h4>
+                        <h2 class="white">Kunal Zaveri</h2>
+						<p class="white"> Student at Ganpat University </p>
+						<p class="white">Email: kunalzaveri11@gmail.com </p>
+
+					</div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-md-2">
+                    <div class="text-container">
+                        <h4>Connect</h4>
+                        <ul class="list-unstyled li-space-lg white">
+                            <li>
+                                <a class="white" href="https://www.linkedin.com/in/kunal-zaveri-57a7ba173/">LinkedIn</a>
+                            </li>
+                            <li>
+                                <a class="white" href="https://github.com/kz2511">Github</a>
+                            </li>
+                            <li>
+                                <a class="white" href="">Kaggle</a>
+                            </li>
+                        </ul>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col --
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
 
 
 

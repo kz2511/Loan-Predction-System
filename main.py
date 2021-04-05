@@ -15,7 +15,10 @@ cursor = connection.cursor()
 # decorator defines
 @app.route('/admin')
 def admin():
-
+    query = "SELECT * FROM prediction"
+    cursor.execute(query)
+    prediction=cursor.fetchall()
+    print("User Predictions", prediction)
     return render_template('admin.html')
 @app.route('/home')
 def home():
@@ -130,6 +133,15 @@ def predict():
             lamount = int(request.form['lamount'])
             duration = int(request.form['duration'])
 
+
+            dictPropArea = {0: "Rural", 1:"Semiurban", 2:"urban"}
+            dictgender = {0: "Male" , 1:"Female"}
+            dictmar = {0:"Married" , 1:"UnMarried"}
+            dictdep = {0:"Zero Dependents" , 1:"One Dependents" , 2:"two Dependents" , 3:"More Than Two Dependents"}
+            dictedu = {0:"Graduate" , 1:"Not Graduate"}
+            dictemp = {0:"Business" , 1:"Job"}
+            dictcredit = {0:"Between 100 to 300" , 1:"Between 300 to 500",2:"Between 500 to 600", 3:"Above 600"}
+
             features = [[gen,acc,mar,dep,edu,emp,property,credit,income,caincome,lamount,duration]]
 
             prediction = model.predict(features)
@@ -142,7 +154,7 @@ def predict():
             if ans == 0:
                 pred = 'Not Approved'
                 mopred = "Sorry! According to Our Calculations you will not get the loan from Bank."
-                resp_data = (str(fn), str(ln), str(acc), str(gen), str(mar), str(dep), str(edu), str(emp), str(property),str(credit), str(income), str(caincome), str(lamount), str(duration), str(pred))
+                resp_data = (str(fn), str(ln), str(acc), str(dictgender[gen]), str(dictmar[mar]), str(dictdep[dep]), str(dictedu[edu]), str(dictemp[emp]), str(dictPropArea[property]),str(dictcredit[credit]), str(income), str(caincome), str(lamount), str(duration), str(pred))
                 print(len(resp_data))
                 print(resp_data)
                 resp_query = "INSERT INTO prediction (First_Name,Last_Name,Bank_Account_last_three_digit,Gender,Martial_Status,Number_of_dependents,Education, Employment_status,Property_Area,Credit_Score ,Income,Co_Applicant_Income,Loan_Amount , Loan_Duration,prediction)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
@@ -151,7 +163,7 @@ def predict():
                 return render_template('predict.html',cus_name = cusname,acc_no =accr,prediction_text=mopred )
             else:
                 pred = 'Approved'
-                resp_data = (str(fn), str(ln),str(acc), str(gen), str(mar), str(dep), str(edu), str(emp), str(property), str(credit), str(income), str(caincome), str(lamount), str(duration), str(pred))
+                resp_data = (str(fn), str(ln),str(acc), str(dictgender[gen]), str(dictmar[mar]), str(dictdep[dep]), str(dictedu[edu]), str(dictemp[emp]), str(dictPropArea[property]), str(dictcredit[credit]), str(income), str(caincome), str(lamount), str(duration), str(pred))
                 print(len(resp_data))
                 print(resp_data)
                 resp_query = "INSERT INTO prediction (First_Name,Last_Name,Bank_Account_last_three_digit,Gender,Martial_Status,Number_of_dependents,Education, Employment_status,Property_Area,Credit_Score ,Income,Co_Applicant_Income,Loan_Amount , Loan_Duration,prediction)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"

@@ -70,3 +70,9 @@ a {
       background-size: cover;
 
 }
+.cont{
+    background: #616161;
+    background: -webkit-linear-gradient(to right, #9bc5c3, #616161);
+    background: linear-gradient(to right, #9bc5c3, #616161);
+
+}
