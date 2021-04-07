@@ -19,7 +19,10 @@ def admin():
     cursor.execute(query)
     prediction=cursor.fetchall()
     print("User Predictions", prediction)
-    return render_template('admin.html')
+    return render_template('admin.html',value=prediction)
+@app.route('/adminlogin')
+def adminlogin():
+    return render_template('adminlogin.html')
 @app.route('/home')
 def home():
     if 'userid' in session:
@@ -135,7 +138,7 @@ def predict():
 
 
             dictPropArea = {0: "Rural", 1:"Semiurban", 2:"urban"}
-            dictgender = {0: "Male" , 1:"Female"}
+            dictgender = {1: "Male" , 0:"Female"}
             dictmar = {0:"Married" , 1:"UnMarried"}
             dictdep = {0:"Zero Dependents" , 1:"One Dependents" , 2:"two Dependents" , 3:"More Than Two Dependents"}
             dictedu = {0:"Graduate" , 1:"Not Graduate"}

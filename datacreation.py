@@ -41,8 +41,19 @@ def createtablepredction():
         prediction varchar(20) NOT NULL
     );
        """)
-createtablepredction()
+#createtablepredction()
 
 
+def createadmindata():
+    connection = pymysql.connect(host="localhost", user="root", password="", database="loan_prediction")
+    currsor = connection.cursor()
+    currsor.execute("""CREATE TABLE IF NOT EXISTS Admin_DATA ( 
+           USER_ID varchar(100) NOT NULL,
+           
+           MOBILE_NUMBER varchar(100) NOT NULL,
+           PASSWORD varchar(50) NOT NULL
+       );
+          """)
+createadmindata()
 
 

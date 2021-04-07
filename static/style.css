@@ -76,3 +76,9 @@ a {
     background: linear-gradient(to right, #9bc5c3, #616161);
 
 }
+
+.bg_admin{
+    background: #BBD2C5;
+    background: -webkit-linear-gradient(to right, #292E49, #536976, #BBD2C5);
+    background: linear-gradient(to right, #292E49, #536976, #BBD2C5);
+}

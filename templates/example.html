@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">First_Name</th>
+        <th scope="col">Last_Name varchar</th>
+        <th scope="col">Bank_Account_last_three_digit</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Martial_Status</th>
+        <th scope="col">Number_of_dependents</th>
+        <th scope="col">Education</th>
+        <th scope="col">Employment_status</th>
+        <th scope="col">Property_Area</th>
+        <th scope="col">Credit_Score</th>
+        <th scope="col">Applicant Income</th>
+        <th scope="col">Co_Applicant_Income</th>
+        <th scope="col">Loan_Amount</th>
+        <th scope="col">Loan_Duration</th>
+        <th scope="col">prediction</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for row in value %}
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>{{row[6]}}</td>
+                <td>{{row[7]}}</td>
+                <td>{{row[8]}}</td>
+                <td>{{row[9]}}</td>
+                <td>{{row[10]}}</td>
+                <td>{{row[11]}}</td>
+                <td>{{row[12]}}</td>
+                <td>{{row[13]}}</td>
+                <td>{{row[14]}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
