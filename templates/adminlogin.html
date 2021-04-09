@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <title>change title</title>
+    <title>AdminLogin</title>
   </head>
 <body class="bg_admin">
     <nav class="navbar">
@@ -19,25 +19,25 @@
            <div class="col-md-8">
                <h1 class="text-dark display-4 mt-50" style="font-size:70px;font-weight:bold;"> LOAN PREDICTION SYSTEM </h1>
                <p>
-                   <h4 class="text-light display-4 mt-50"> Create your account to access the prediction features for you bank loan approval </h4>
+                   <h4 class="text-light display-4 mt-50">Welcome Admin for  access the prediction features for you bank loan approval </h4>
                </p>
 
            </div>
        <div class="col-md-4">
            <div class="card mt-50">
                <div class="card-body">
-                   <form class="form" method="POST", action="/login_validation">
-                       <label for="exampleInputUserid">Userid</label>
-                       <input type="text" class="form-control" id="exampleInputUserid" placeholder="Userid"
-                              name="userid" required>
+                   <form class="form" method="POST", action="/adminvaldation">
+                       <label for="exampleInputUserid">Admin Id</label>
+                       <input type="text" class="form-control" id="exampleInputUserid" placeholder="Admin Id"
+                              name="auserid" required>
                        <br>
                        <label for="exampleInputMobileno">Mobile Number</label>
                        <input type="tel" pattern=".{10}" class="form-control" id="exampleInputMobileno"
-                              placeholder="Mobile Number" oninput="check(this)" name="mobile_number" required>
+                              placeholder="Mobile Number" oninput="check(this)" name="amobile_number" required>
                        <br>
                        <label for="exampleInputPassword1">Password</label>
                        <input type="password" class="form-control" id="exampleInputPassword1"
-                              placeholder="Password" name="password" required>
+                              placeholder="Password" name="apassword" required>
                        <br>
                        <br>
                        <center>
@@ -46,7 +46,8 @@
 
                    </form>
                    <center>
-                   <p class="mt-2"> You are not admin<a href="/"> Userlogin_Account</a></p>
+                   <p class="mt-2"> You are not an admin?
+                       <a href="/">Login as a User</a></p>
                    </center>
                </div>
            </div>
