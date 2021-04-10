@@ -15,6 +15,7 @@ cursor = connection.cursor()
 
 
 # decorator defines
+## Admin Code Part is Here
 @app.route('/admin')
 def admin():
     query = "select * from prediction;"
@@ -51,7 +52,7 @@ def adminval():
     else:
         return redirect('/')
 
-
+## User Code Start From Here
 @app.route('/home')
 def home():
     if 'userid' in session:
@@ -100,7 +101,7 @@ def loginvaldation():
         return redirect('/home')
     else:
         print("Something went wrong")
-        return redirect('/')
+        return render_template('login.html',passlo = "FAIL")
 
 
 @app.route('/add_user', methods=['POST'])

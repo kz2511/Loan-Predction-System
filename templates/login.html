@@ -38,13 +38,13 @@
                        <label for="exampleInputPassword1">Password</label>
                        <input type="password" class="form-control" id="exampleInputPassword1"
                               placeholder="Password" name="password" required>
-                        {% if passlo == 1 %}
-                            <h4 style="color:orange;"> Passwords does not match</h4>
+                        {% if passlo == "FAIL" %}
+                            <h4 style="color:red;"> Wrong Password</h4>
                        {% endif %}
                        <br>
                        <br>
                        <center>
-                       <input type="submit" class="btn btn-success btn-block btn-lg" value="User_Login">
+                       <input type="submit" class="btn btn-success btn-block btn-lg" value="User Login">
                        </center>
 
                    </form>
