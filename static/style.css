@@ -82,3 +82,10 @@ a {
     background: -webkit-linear-gradient(to right, #292E49, #536976, #BBD2C5);
     background: linear-gradient(to right, #292E49, #536976, #BBD2C5);
 }
+
+.footer{
+    background: #304352;
+    background: -webkit-linear-gradient(to right, #d7d2cc, #304352);
+    background: linear-gradient(to right, #d7d2cc, #304352);
+
+}

@@ -78,6 +78,7 @@ def contact():
 
 
 @app.route('/visualize')
+
 def visu():
     return render_template('visualize.html')
 
@@ -182,7 +183,7 @@ def predict():
             lc = [str(i) for i in prediction]
             ans = int("".join(lc))
             print(ans)
-            cusname = "Hello Sir " + fn + ' ' + ln
+            cusname = "Hello Sir/Madam " + fn + ' ' + ln
             accr = "Bank Account Number: " + str(acc)
             if ans == 0:
                 pred = 'Not Approved'

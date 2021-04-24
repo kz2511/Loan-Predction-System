@@ -38,6 +38,9 @@
                        <label for="exampleInputPassword1">Password</label>
                        <input type="password" class="form-control" id="exampleInputPassword1"
                               placeholder="Password" name="apassword" required>
+                       {% if passlo == "ADFAIL" %}
+                            <h4 style="color:red;">Wrong Password</h4>
+                       {% endif %}
                        <br>
                        <br>
                        <center>
