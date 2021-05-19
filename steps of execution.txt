@@ -1,0 +1,8 @@
+(1) Download Anaconda for python and jupter noteboook 
+(2) Download XAMP Control Panel
+(3) Download pycharm Community version 
+(4) Open CMD in working directory
+(5) Write "pip install -r requirements.txt" in CMD
+(6) Run "main.py" file for whole project
+(7) Download tableau public 
+(8) See Full Viulazation dashboard:-  https://public.tableau.com/views/cp2_16157225641000/finalshowinwebsite?:language=en&:display_count=y&:toolbar=n&:origin=viz_share_link 

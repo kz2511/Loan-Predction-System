@@ -104,7 +104,6 @@ def loginvaldation():
         print("Something went wrong")
         return render_template('login.html',passlo = "FAIL")
 
-
 @app.route('/add_user', methods=['POST'])
 def adduser():
     userid = request.form.get('userid')
