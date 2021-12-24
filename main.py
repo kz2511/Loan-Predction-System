@@ -4,13 +4,15 @@ from flask import Flask, render_template, request, redirect, session
 import os
 import pickle
 import hashlib
+from sklearn.linear_model import _logistic as logistic
+
 
 # creating the Flask class object
 app = Flask(__name__)
-model = pickle.load(open('./Model/loanpred_model.pkl', 'rb'))
+model = pickle.load(open('./Model/loanpred1_tree.pkl', 'rb'))
 app.secret_key = os.urandom(24)
 # connection with database
-connection = pymysql.connect(host="localhost", user="root", password="", database="loan_prediction")
+connection = pymysql.connect(host="localhost", user="root", password="", database="loan_prediction_system")
 cursor = connection.cursor()
 
 
