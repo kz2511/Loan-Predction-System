@@ -1,9 +1,8 @@
 #  **Bank Loan Prediction System using Flask**
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)                 
-[![Python 3.6](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-373rc1/)   
-
-
+[![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-373rc1/)   
+[![Flask](https://img.shields.io/badge/flask-v1.1.1-blue)](https://flask.palletsprojects.com/en/2.0.x/)   
 
 
 
