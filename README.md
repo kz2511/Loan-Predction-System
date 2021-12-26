@@ -32,3 +32,19 @@ Loan_Amount_Term | Term of loan in months
 Credit_History | credit history meets guidelines
 Property_Area | Urban/ Semi Urban/ Rural
 Loan_Status | Loan approved (Y/N)
+
+
+## ScreenShot Of Application:
+![App Screenshot](https://github.com/kz2511/Loan-Predction-System/blob/master/SS%20of%20Application/login%20.png)
+
+
+![App Screenshot](https://github.com/kz2511/Loan-Predction-System/blob/master/SS%20of%20Application/singin%20%20.png)
+
+
+![App Screenshot](https://github.com/kz2511/Loan-Predction-System/blob/master/SS%20of%20Application/predction%20screen%20.png)
+
+
+![App Screenshot](https://github.com/kz2511/Loan-Predction-System/blob/master/SS%20of%20Application/visulazation%20.png)
+
+
+![App Screenshot](https://github.com/kz2511/Loan-Predction-System/blob/master/SS%20of%20Application/adminlogin%20.png)
